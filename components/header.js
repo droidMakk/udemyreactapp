@@ -3,14 +3,15 @@ import { Text, View } from 'react-native';
 
 const Header = (props) => {
     const { textStyle, viewStyle } = styles;
-
+    const { title, status } = this.props;
+    
     return (
         <View style={viewStyle} >
             <Text style={textStyle} >
-                {props.title}
+                {title}
             </Text>
             <Text>
-                {props.status}
+                {status}
             </Text>
         </View>
     )
