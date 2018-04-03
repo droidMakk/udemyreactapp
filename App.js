@@ -6,4 +6,4 @@ const App = () => (
   <AlbumList title='Albums!' />
 )
 
-export default AlbumList;
+export default App;

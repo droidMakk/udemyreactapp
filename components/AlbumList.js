@@ -13,6 +13,13 @@ export default class AlbumList extends Component {
             albums: [],
             albumStatus: ' '
         };
+        this.renderAlbums = this.renderAlbums.bind(this);
+    }
+
+    renderAlbums() {
+        return this.state.albums.map(album => 
+            <AlbumDetails album={album} key={album.title} />
+        )
     }
 
     componentWillMount(){
@@ -26,7 +33,7 @@ export default class AlbumList extends Component {
         return(
             <View>
                 <Header title="Album List" status={this.state.albumStatus} />
-                <AlbumDetails albums={this.state.albums}/>
+                {this.renderAlbums()}
             </View>
         );
     }
