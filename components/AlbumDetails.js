@@ -2,41 +2,39 @@ import React,{ Component } from 'react';
 import { Text, Image, View, TouchableOpacity } from 'react-native';
 import Card from './card';
 import CardSection from './CardSection';
-
+import { Button } from './Button';
 
 class AlbumDetails extends Component {
     render(){
         const { title, artist, thumbnail_image, image } = this.props.album;
         const { 
-            imageContainer, 
             containerStyle,
-            albumArtContainer
+            albumArtContainer,
+            thumbnailStyle,
+            headerContentStyle,
+            headerStyle
         } = styles;
-
+        
         return (
             <Card>
                 <CardSection key={title} >
-                        <View  style={containerStyle}>
-                            <View style={imageContainer}>
-                                <Image source= { {uri : thumbnail_image} } />
-                            </View>
-                            <View>
-                                <Text>{title}</Text>
-                                <Text>{artist}</Text>
-                            </View>
-                        </View>
-                </CardSection>
-                <CardSection>
-                    <View style={albumArtContainer}>
-                        <Image source={{ uri: image }} />
+                    <View style={containerStyle}>
+                        <Image style={thumbnailStyle} source= { {uri : thumbnail_image} } />
+                    </View>
+                    <View style={headerContentStyle}>
+                        <Text style={headerStyle}>{title}</Text>
+                        <Text>{artist}</Text>
                     </View>
                 </CardSection>
+
                 <CardSection>
-                    <TouchableOpacity>
-                        <Text>
-                            Click Me!
-                        </Text>
-                    </TouchableOpacity>
+                    <Image style={albumArtContainer} source={{ uri: image }} />
+                </CardSection>
+
+                <CardSection>
+                    <Button>
+                        Purchase
+                    </Button>
                 </CardSection>
             </Card>
         )
@@ -44,17 +42,27 @@ class AlbumDetails extends Component {
 }
 
 const styles = {
-    containerStyle: {
-        display: 'flex',
-        alignContent: 'space-around'
+    headerStyle:{
+        fontSize: 18
     },
-    imageContainer: {
-        width: 20
+    containerStyle: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 5,
+        marginRight: 5
+    },
+    thumbnailStyle:{
+        width: 50,
+        height: 50
     },
     albumArtContainer: {
         flex: 1,
-        alignSelf: 'stretch',
-        width: 100
+        height: 300,
+        width: null
+    },
+    headerContentStyle: {
+        flexDirection: 'column',
+        justifyContent: 'space-around'
     }
 }
 
