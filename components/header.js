@@ -7,7 +7,7 @@ const Header = (props) => {
 
     return (
         <View style={viewStyle} >
-            <Text>
+            <Text style={{fontSize: 20}}>
                 {title}
             </Text>
         </View>
@@ -17,9 +17,17 @@ const Header = (props) => {
 
 const styles = {
     viewStyle: {
+        flex: 1,
         backgroundColor: '#F8F8F8',
         justifyContent: 'center',
-        alignItems : 'center'
+        alignItems : 'center',
+        position: 'relative',
+        paddingTop: 10, 
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        elevation: 2,
+        height: 60,
+        shadowColor: '#000'
     }
 }
 

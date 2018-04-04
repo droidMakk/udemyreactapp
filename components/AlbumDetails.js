@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import { Text, Image, View } from 'react-native';
+import { Text, Image, View, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import { Button } from './Button';
 
 class AlbumDetails extends Component{
+
+    onPressButton = () => {
+        Linking.openURL(this.props.album.url).catch(err => {console.error('Error opening \n',err)})
+    }
+
     render(){
         const { title, artist, thumbnail_image, image } = this.props.album;
         const {
@@ -32,7 +37,7 @@ class AlbumDetails extends Component{
                 </CardSection>
 
                 <CardSection>
-                    <Button>
+                    <Button onPress={this.onPressButton.bind(this)}>
                         Purchase
                     </Button>
                 </CardSection>
@@ -62,7 +67,8 @@ const styles = {
     },
     headerContentStyle: {
         flexDirection: 'column',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        flex: 3
     }
 }
 
