@@ -6,7 +6,7 @@ import { Button } from './Button';
 
 class AlbumDetails extends Component{
     render(){
-        const { title, artist, thumbnail_image, image } = props.album;
+        const { title, artist, thumbnail_image, image } = this.props.album;
         const {
             containerStyle,
             albumArtContainer,
