@@ -1,6 +1,6 @@
 import React,{ Component } from "react";
 import { ScrollView } from 'react-native';
-import Header from './header';
+import Header from './Header';
 import AlbumDetails from './AlbumDetails';
 import axios from 'axios';
 
