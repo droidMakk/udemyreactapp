@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const CardSection = (props) => {
+const CardSection = () => {
     return(
         <View style={styles.containerStyle} >
-            {props.children}
+            {this.props.children}
         </View>
     )
 }
